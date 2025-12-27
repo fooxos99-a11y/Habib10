@@ -248,7 +248,7 @@ export function Header() {
                 <DropdownMenuContent align="end" className="w-64 p-2 rounded-xl shadow-2xl border border-[#d8a355]/30 bg-white text-[#00312e]">
                   {userRole === "admin" ? (
                     <DropdownMenuItem
-                      onClick={() => handleDropdownNavClick("/admin/dashboard")}
+                      onClick={() => { handleDropdownNavClick("/admin/dashboard"); setIsMobileProfileDropdownOpen(false); }}
                       className="cursor-pointer text-base py-3 focus:bg-[#f5f1e8] focus:text-[#d8a355] transition-all duration-200"
                     >
                       <LayoutDashboard className="w-5 h-5 ml-2" />
@@ -257,26 +257,72 @@ export function Header() {
                   ) : userRole === "teacher" ? (
                     <>
                       <DropdownMenuItem
-                        onClick={() => handleDropdownNavClick("/teacher/halaqah/1")}
+                        onClick={() => { handleDropdownNavClick("/teacher/halaqah/1"); setIsMobileProfileDropdownOpen(false); }}
                         className="cursor-pointer text-base py-3 focus:bg-[#f5f1e8] focus:text-[#d8a355] transition-all duration-200"
                       >
                         <Users className="w-5 h-5 ml-2" />
                         إدارة الحلقة
                       </DropdownMenuItem>
                       <DropdownMenuItem
-                        onClick={handleOpenAttendanceModal}
+                        onClick={() => { handleOpenAttendanceModal(); setIsMobileProfileDropdownOpen(false); }}
                         className="cursor-pointer text-base py-3 focus:bg-[#f5f1e8] focus:text-[#d8a355] transition-all duration-200"
                       >
                         <ClipboardCheck className="w-5 h-5 ml-2" />
                         التحضير
                       </DropdownMenuItem>
                     </>
+                  ) : userRole === "student" ? (
+                    <>
+                      <DropdownMenuItem
+                        onClick={() => { handleDropdownNavClick("/profile"); setIsMobileProfileDropdownOpen(false); }}
+                        className="cursor-pointer text-base py-3 focus:bg-[#f5f1e8] focus:text-[#d8a355] transition-all duration-200"
+                      >
+                        <User className="w-5 h-5 ml-2" />
+                        الملف الشخصي
+                      </DropdownMenuItem>
+                      <DropdownMenuItem
+                        onClick={() => { handleDropdownNavClick("/achievements"); setIsMobileProfileDropdownOpen(false); }}
+                        className="cursor-pointer text-base py-3 focus:bg-[#f5f1e8] focus:text-[#d8a355] transition-all duration-200"
+                      >
+                        <Award className="w-5 h-5 ml-2" />
+                        الإنجازات
+                      </DropdownMenuItem>
+                      <DropdownMenuItem
+                        onClick={() => { handleDropdownNavClick("/pathways"); setIsMobileProfileDropdownOpen(false); }}
+                        className="cursor-pointer text-base py-3 focus:bg-[#f5f1e8] focus:text-[#d8a355] transition-all duration-200"
+                      >
+                        <BarChart3 className="w-5 h-5 ml-2" />
+                        المسار
+                      </DropdownMenuItem>
+                      <DropdownMenuItem
+                        onClick={() => { handleDropdownNavClick("/daily-challenge"); setIsMobileProfileDropdownOpen(false); }}
+                        className="cursor-pointer text-base py-3 focus:bg-[#f5f1e8] focus:text-[#d8a355] transition-all duration-200"
+                      >
+                        <Star className="w-5 h-5 ml-2" />
+                        التحدي اليومي
+                      </DropdownMenuItem>
+                      <DropdownMenuItem
+                        onClick={() => { handleDropdownNavClick("/store"); setIsMobileProfileDropdownOpen(false); }}
+                        className="cursor-pointer text-base py-3 focus:bg-[#f5f1e8] focus:text-[#d8a355] transition-all duration-200"
+                      >
+                        <Trophy className="w-5 h-5 ml-2" />
+                        المتجر
+                      </DropdownMenuItem>
+                      <DropdownMenuItem
+                        onClick={() => { handleDropdownNavClick("/contact"); setIsMobileProfileDropdownOpen(false); }}
+                        className="cursor-pointer text-base py-3 focus:bg-[#f5f1e8] focus:text-[#d8a355] transition-all duration-200"
+                      >
+                        <Users className="w-5 h-5 ml-2" />
+                        تواصل معنا
+                      </DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                    </>
                   ) : (
                     <DropdownMenuSeparator />
                   )}
-                {/* End of role-based menu items */}
-                <DropdownMenuItem
-                    onClick={handleLogout}
+                  {/* End of role-based menu items */}
+                  <DropdownMenuItem
+                    onClick={() => { handleLogout(); setIsMobileProfileDropdownOpen(false); }}
                     className="cursor-pointer text-base py-3 text-red-600 focus:bg-red-50 focus:text-red-700 transition-all duration-200"
                   >
                     <LogOut className="w-5 h-5 ml-2" />
