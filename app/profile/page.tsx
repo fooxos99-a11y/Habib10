@@ -251,9 +251,9 @@ export default function ProfilePage() {
                 <div className="flex-1 w-full">
                   <div className="flex flex-col items-center gap-4 md:gap-8">
                     <div className="flex-1 text-center md:text-right w-full">
-                      <h1 className="text-2xl md:text-4xl font-bold mb-2">{studentData.name}</h1>
-                      <p className="text-base md:text-xl mb-4 opacity-90">{studentData.halaqah}</p>
-                      <div className="grid grid-cols-3 gap-2 md:gap-3 mt-4 md:mt-6">
+                      <h1 className="text-2xl md:text-4xl font-bold mb-2 text-[#1a2332] drop-shadow-sm">{studentData.name}</h1>
+                      <p className="text-base md:text-xl mb-4 text-[#1a2332] opacity-90 font-semibold">{studentData.halaqah}</p>
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4 md:mt-6">
                         <div className="bg-white/95 backdrop-blur-sm rounded-lg md:rounded-xl p-3 md:p-4 shadow-lg border-2 border-white/50 hover:scale-105 transition-transform duration-300">
                           <div className="flex items-center justify-between mb-1 md:mb-2">
                             <div
@@ -280,7 +280,7 @@ export default function ProfilePage() {
                             >
                               {rankingData?.globalRank || "-"}
                             </div>
-                            <p className="text-[9px] md:text-xs text-[#1a2332]/50 font-semibold">بين جميع الطلاب</p>
+                            <p className="text-xs md:text-xs text-[#1a2332] font-semibold">بين جميع الطلاب</p>
                           </div>
                         </div>
 
@@ -310,7 +310,7 @@ export default function ProfilePage() {
                             >
                               {rankingData?.circleRank || "-"}
                             </div>
-                            <p className="text-[9px] md:text-xs text-[#1a2332]/50 font-semibold">
+                            <p className="text-xs md:text-xs text-[#1a2332] font-semibold">
                               {rankingData?.circleName}
                             </p>
                           </div>
@@ -343,7 +343,7 @@ export default function ProfilePage() {
                             >
                               {studentData.points}
                             </div>
-                            <p className="text-[9px] md:text-xs text-[#1a2332]/50 font-semibold">نقطة</p>
+                            <p className="text-xs md:text-xs text-[#1a2332] font-semibold">نقطة</p>
                           </div>
                         </div>
                       </div>
@@ -470,8 +470,8 @@ export default function ProfilePage() {
               <TabsContent value="records" className="space-y-4">
                 <Card className="border-2 shadow-lg" style={{ borderColor: `var(--theme-primary)33` }}>
                   <CardHeader className="bg-white">
-                    <CardTitle className="text-2xl font-bold text-[#c99347]">سجلات الحضور والتقييم</CardTitle>
-                    <CardDescription className="text-lg font-semibold text-[#1a2332]/80">سجلات الحضور والتقييمات الخاصة بك</CardDescription>
+                    <CardTitle className="text-2xl font-bold text-[#d8a355] drop-shadow-sm">سجلات الحضور والتقييم</CardTitle>
+                    <CardDescription className="text-base md:text-lg font-semibold text-[#1a2332]">سجلات الحضور والتقييمات الخاصة بك</CardDescription>
                   </CardHeader>
                   <CardContent className="pt-6 space-y-4">
                     {isLoadingRecords ? (
@@ -495,9 +495,9 @@ export default function ProfilePage() {
                             className="p-4 bg-white rounded-2xl border-2 shadow-md flex flex-col gap-3"
                             style={{ borderColor: `#d8a35533` }}
                           >
-                            <div className="flex flex-row justify-between items-center mb-2">
+                            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2 gap-2">
                               <div>
-                                <span className="text-base font-bold text-[#c99347]">التاريخ: </span>
+                                <span className="text-base font-bold text-[#d8a355]">التاريخ: </span>
                                 <span className="text-lg font-extrabold text-[#1a2332] tracking-wide">
                                   {new Date(record.date).toLocaleDateString("ar-SA")}
                                 </span>
@@ -518,27 +518,27 @@ export default function ProfilePage() {
                                   : "غائب"}
                               </Badge>
                             </div>
-                            <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 text-center">
+                            <div className="flex flex-col gap-2 sm:grid sm:grid-cols-4 text-center">
                               <div className="flex flex-col">
-                                <span className="text-base font-bold text-[#c99347] mb-1">الحفظ</span>
+                                <span className="text-base font-bold text-[#d8a355] mb-1">الحفظ</span>
                                 <span className="text-lg font-extrabold text-[#1a2332]">
                                   {getEvaluationText(record.hafiz_level)}
                                 </span>
                               </div>
                               <div className="flex flex-col">
-                                <span className="text-base font-bold text-[#c99347] mb-1">التكرار</span>
+                                <span className="text-base font-bold text-[#d8a355] mb-1">التكرار</span>
                                 <span className="text-lg font-extrabold text-[#1a2332]">
                                   {getEvaluationText(record.tikrar_level)}
                                 </span>
                               </div>
                               <div className="flex flex-col">
-                                <span className="text-base font-bold text-[#c99347] mb-1">السماع</span>
+                                <span className="text-base font-bold text-[#d8a355] mb-1">السماع</span>
                                 <span className="text-lg font-extrabold text-[#1a2332]">
                                   {getEvaluationText(record.samaa_level)}
                                 </span>
                               </div>
                               <div className="flex flex-col">
-                                <span className="text-base font-bold text-[#c99347] mb-1">الربط</span>
+                                <span className="text-base font-bold text-[#d8a355] mb-1">الربط</span>
                                 <span className="text-lg font-extrabold text-[#1a2332]">
                                   {getEvaluationText(record.rabet_level)}
                                 </span>
