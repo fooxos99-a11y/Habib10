@@ -392,12 +392,12 @@ export default function ProfilePage() {
               </TabsList>
 
               <TabsContent value="profile" className="space-y-4 md:space-y-6">
-                <Card className="border-2 shadow-lg border-[#d8a355]/20">
-                  <CardHeader className="bg-white p-4 md:p-6">
-                    <CardTitle className="text-xl md:text-2xl text-[#1a2332]">البيانات الشخصية</CardTitle>
-                    <CardDescription className="text-sm md:text-base">معلومات الطالب الأساسية</CardDescription>
+                <Card className="border-4 border-[#d8a355] shadow-2xl bg-white/95 backdrop-blur-sm rounded-2xl md:rounded-3xl">
+                  <CardHeader className="bg-white p-5 md:p-6 rounded-t-2xl border-b-2 border-[#d8a355]/20">
+                    <CardTitle className="text-xl md:text-2xl text-[#d8a355] font-extrabold drop-shadow-sm">البيانات الشخصية</CardTitle>
+                    <CardDescription className="text-base md:text-lg text-[#1a2332]/80 font-semibold">معلومات الطالب الأساسية</CardDescription>
                   </CardHeader>
-                  <CardContent className="pt-4 md:pt-6 space-y-4 md:space-y-6">
+                  <CardContent className="pt-5 md:pt-6 space-y-4 md:space-y-6">
                     {/* Theme Switcher Section */}
                     <div className="pb-4 md:pb-6 border-b-2 md:border-b-2 border-[#d8a355]/20 md:border-[#d8a355]/20">
                       <ThemeSwitcher studentId={studentData?.id} />
@@ -457,8 +457,8 @@ export default function ProfilePage() {
               </TabsContent>
 
               <TabsContent value="achievements" className="space-y-6">
-                <Card className="border-2 shadow-lg" style={{ borderColor: `var(--theme-primary)33` }}>
-                  <CardContent className="pt-6">
+                <Card className="border-4 border-[#d8a355] shadow-2xl bg-white/95 backdrop-blur-sm rounded-2xl md:rounded-3xl">
+                  <CardContent className="pt-8">
                     <div className="text-center py-12">
                       <Award className="w-24 h-24 mx-auto mb-4 opacity-40" style={{ color: "#d8a355" }} />
                       <p className="text-2xl font-bold text-[#c99347] mb-2">لاتوجد إنجازات حاليا</p>
@@ -468,12 +468,12 @@ export default function ProfilePage() {
               </TabsContent>
 
               <TabsContent value="records" className="space-y-4">
-                <Card className="border-2 shadow-lg" style={{ borderColor: `var(--theme-primary)33` }}>
-                  <CardHeader className="bg-white">
-                    <CardTitle className="text-2xl font-bold text-[#d8a355] drop-shadow-sm">سجلات الحضور والتقييم</CardTitle>
+                <Card className="border-4 border-[#d8a355] shadow-2xl bg-white/95 backdrop-blur-sm rounded-2xl md:rounded-3xl">
+                  <CardHeader className="bg-white rounded-t-2xl border-b-2 border-[#d8a355]/20">
+                    <CardTitle className="text-2xl md:text-3xl font-extrabold text-[#d8a355] drop-shadow-sm">سجلات الحضور والتقييم</CardTitle>
                     <CardDescription className="text-base md:text-lg font-semibold text-[#1a2332]">سجلات الحضور والتقييمات الخاصة بك</CardDescription>
                   </CardHeader>
-                  <CardContent className="pt-6 space-y-4">
+                  <CardContent className="pt-8 space-y-4">
                     {isLoadingRecords ? (
                       <div className="text-center py-8">
                         <p className="text-xl font-bold text-[#c99347]/80">جاري تحميل السجلات...</p>
