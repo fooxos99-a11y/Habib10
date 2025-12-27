@@ -242,7 +242,7 @@ export default function ProfilePage() {
         <main className="flex-1 py-6 md:py-12 px-3 md:px-4">
           <div className="container mx-auto max-w-6xl">
             <div
-              className="rounded-2xl md:rounded-3xl shadow-2xl p-4 md:p-8 mb-2 md:mb-8 text-white"
+              className="rounded-2xl md:rounded-3xl shadow-2xl p-4 md:p-8 mb-0 md:mb-4 text-white"
               style={{
                 background: `linear-gradient(to right, #d8a355, #c99347)`,
               }}
@@ -301,10 +301,10 @@ export default function ProfilePage() {
             </div>
 
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-              <TabsList className="grid w-full grid-cols-3 h-auto bg-white shadow-lg rounded-xl p-1 md:p-2 mb-6 md:mb-8">
+              <TabsList className="grid w-full grid-cols-3 h-auto bg-white shadow-lg rounded-xl p-1 md:p-2 mb-4 md:mb-8 z-10">
                 <TabsTrigger
                   value="profile"
-                  className="text-lg md:text-xl font-bold py-3 md:py-4 rounded-lg data-[state=active]:text-white"
+                  className="text-lg md:text-xl font-bold py-3 md:py-4 rounded-lg text-[#1a2332] data-[state=active]:text-white"
                   style={{
                     background: activeTab === "profile" ? `linear-gradient(to right, #d8a355, #c99347)` : undefined,
                   }}
@@ -315,7 +315,7 @@ export default function ProfilePage() {
                 </TabsTrigger>
                 <TabsTrigger
                   value="achievements"
-                  className="text-lg md:text-xl font-bold py-3 md:py-4 rounded-lg data-[state=active]:text-white"
+                  className="text-lg md:text-xl font-bold py-3 md:py-4 rounded-lg text-[#1a2332] data-[state=active]:text-white"
                   style={{
                     background:
                       activeTab === "achievements" ? `linear-gradient(to right, #d8a355, #c99347)` : undefined,
@@ -327,7 +327,7 @@ export default function ProfilePage() {
                 </TabsTrigger>
                 <TabsTrigger
                   value="records"
-                  className="text-lg md:text-xl font-bold py-3 md:py-4 rounded-lg data-[state=active]:text-white"
+                  className="text-lg md:text-xl font-bold py-3 md:py-4 rounded-lg text-[#1a2332] data-[state=active]:text-white"
                   style={{
                     background: activeTab === "records" ? `linear-gradient(to right, #d8a355, #c99347)` : undefined,
                   }}
