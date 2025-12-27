@@ -239,105 +239,99 @@ export default function ProfilePage() {
       <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#f5f1e8] to-white">
         <Header />
 
-        <main className="flex-1 py-6 md:py-12 px-3 md:px-4">
-            <div className="container mx-auto max-w-6xl">
-              {/* الكرت العلوي */}
-              <div
-                className="rounded-2xl md:rounded-3xl shadow-2xl p-4 md:p-8 mb-0 md:mb-4 text-white"
-                style={{
-                  background: `linear-gradient(to right, #d8a355, #c99347)`,
-                }}
-              >
-                <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8">
-                  <div className="flex-1 w-full">
-                    <div className="flex flex-col items-center gap-4 md:gap-8">
-                      <div className="flex-1 text-center md:text-right w-full">
-                        <h1 className="text-2xl md:text-4xl font-bold mb-2 text-[#1a2332] drop-shadow-sm">{studentData.name}</h1>
-                        <p className="text-base md:text-xl mb-4 text-[#1a2332] opacity-90 font-semibold">{studentData.halaqah}</p>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 md:mt-6">
-                          {/* المركز العام */}
-                          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 flex flex-col items-center justify-center shadow-lg border-2 border-white/50">
-                            <div className="flex flex-col items-center justify-center gap-2 mb-2">
-                              <div className="p-2 rounded-lg shadow-md" style={{background: `linear-gradient(to bottom right, #d8a355, #c99347)`}}>
-                                <Trophy className="w-5 h-5 text-white" />
-                              </div>
-                              <span className="text-xs font-bold text-[#1a2332]/60 tracking-wide">المركز العام</span>
-                            </div>
-                            <div className="flex flex-col items-center justify-center">
-                              <span className="text-3xl font-black" style={{background: `linear-gradient(to bottom right, #d8a355, #c99347)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text"}}>{rankingData?.globalRank || "-"}</span>
-                              <span className="text-xs text-[#1a2332] font-semibold">بين جميع الطلاب</span>
-                            </div>
-                          </div>
-                          {/* الحلقة */}
-                          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 flex flex-col items-center justify-center shadow-lg border-2 border-white/50">
-                            <div className="flex flex-col items-center justify-center gap-2 mb-2">
-                              <div className="p-2 rounded-lg shadow-md" style={{background: `linear-gradient(to bottom right, #d8a355, #c99347)`}}>
-                                <Award className="w-5 h-5 text-white" />
-                              </div>
-                              <span className="text-xs font-bold text-[#1a2332]/60 tracking-wide">الحلقة</span>
-                            </div>
-                            <div className="flex flex-col items-center justify-center">
-                              <span className="text-3xl font-black" style={{background: `linear-gradient(to bottom right, #d8a355, #c99347)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text"}}>{rankingData?.circleRank || "-"}</span>
-                              <span className="text-xs text-[#1a2332] font-semibold">{rankingData?.circleName}</span>
-                            </div>
-                          </div>
-                          {/* النقاط */}
-                          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 flex flex-col items-center justify-center shadow-lg border-2 border-white/50">
-                            <div className="flex flex-col items-center justify-center gap-2 mb-2">
-                              <div className="p-2 rounded-lg shadow-md" style={{background: `linear-gradient(to bottom right, #d8a355, #c99347)`}}>
-                                <Star className="w-5 h-5 text-white fill-white" />
-                              </div>
-                              <span className="text-xs font-bold text-[#1a2332]/60 tracking-wide">النقاط</span>
-                            </div>
-                            <div className="flex flex-col items-center justify-center">
-                              <span className="text-3xl font-black" style={{background: `linear-gradient(to bottom right, #d8a355, #c99347)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text"}}>{studentData.points}</span>
-                              <span className="text-xs text-[#1a2332] font-semibold">نقطة</span>
-                            </div>
-                          </div>
-                        </div>
+        <main className="flex-1 py-4 md:py-12 px-1 md:px-4">
+          <div className="w-full max-w-2xl mx-auto flex flex-col gap-3 md:gap-6">
+            {/* الكرت العلوي */}
+            <div
+              className="rounded-2xl md:rounded-3xl shadow-2xl p-3 md:p-8 mb-0 md:mb-4 text-white"
+              style={{ background: `linear-gradient(to right, #d8a355, #c99347)` }}
+            >
+              <div className="flex flex-col items-center gap-2 md:gap-8">
+                <h1 className="text-xl md:text-4xl font-bold mb-1 md:mb-2 text-[#1a2332] drop-shadow-sm text-center w-full">{studentData.name}</h1>
+                <p className="text-sm md:text-xl mb-2 md:mb-4 text-[#1a2332] opacity-90 font-semibold text-center w-full">{studentData.halaqah}</p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 w-full">
+                  {/* المركز العام */}
+                  <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-3 flex flex-col items-center justify-center shadow-lg border-2 border-white/50">
+                    <div className="flex flex-col items-center justify-center gap-1 mb-1">
+                      <div className="p-2 rounded-lg shadow-md" style={{background: `linear-gradient(to bottom right, #d8a355, #c99347)`}}>
+                        <Trophy className="w-5 h-5 text-white" />
                       </div>
+                      <span className="text-xs font-bold text-[#1a2332]/60 tracking-wide">المركز العام</span>
+                    </div>
+                    <div className="flex flex-col items-center justify-center">
+                      <span className="text-2xl font-black" style={{background: `linear-gradient(to bottom right, #d8a355, #c99347)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text"}}>{rankingData?.globalRank || "-"}</span>
+                      <span className="text-xs text-[#1a2332] font-semibold">بين جميع الطلاب</span>
+                    </div>
+                  </div>
+                  {/* الحلقة */}
+                  <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-3 flex flex-col items-center justify-center shadow-lg border-2 border-white/50">
+                    <div className="flex flex-col items-center justify-center gap-1 mb-1">
+                      <div className="p-2 rounded-lg shadow-md" style={{background: `linear-gradient(to bottom right, #d8a355, #c99347)`}}>
+                        <Award className="w-5 h-5 text-white" />
+                      </div>
+                      <span className="text-xs font-bold text-[#1a2332]/60 tracking-wide">الحلقة</span>
+                    </div>
+                    <div className="flex flex-col items-center justify-center">
+                      <span className="text-2xl font-black" style={{background: `linear-gradient(to bottom right, #d8a355, #c99347)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text"}}>{rankingData?.circleRank || "-"}</span>
+                      <span className="text-xs text-[#1a2332] font-semibold">{rankingData?.circleName}</span>
+                    </div>
+                  </div>
+                  {/* النقاط */}
+                  <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-3 flex flex-col items-center justify-center shadow-lg border-2 border-white/50">
+                    <div className="flex flex-col items-center justify-center gap-1 mb-1">
+                      <div className="p-2 rounded-lg shadow-md" style={{background: `linear-gradient(to bottom right, #d8a355, #c99347)`}}>
+                        <Star className="w-5 h-5 text-white fill-white" />
+                      </div>
+                      <span className="text-xs font-bold text-[#1a2332]/60 tracking-wide">النقاط</span>
+                    </div>
+                    <div className="flex flex-col items-center justify-center">
+                      <span className="text-2xl font-black" style={{background: `linear-gradient(to bottom right, #d8a355, #c99347)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text"}}>{studentData.points}</span>
+                      <span className="text-xs text-[#1a2332] font-semibold">نقطة</span>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
 
-            <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-              <TabsList className="grid w-full grid-cols-3 h-auto bg-white shadow-lg rounded-xl p-1 md:p-2 mb-4 md:mb-8 z-10">
-                <TabsTrigger
-                  value="profile"
-                  className="text-lg md:text-xl font-bold py-3 md:py-4 rounded-lg text-[#1a2332] data-[state=active]:text-white"
-                  style={{
-                    background: activeTab === "profile" ? `linear-gradient(to right, #d8a355, #c99347)` : undefined,
-                  }}
-                >
-                  <User className="w-4 h-4 md:w-5 md:h-5 ml-1 md:ml-2" />
-                  <span className="hidden sm:inline">الملف الشخصي</span>
-                  <span className="sm:hidden">الملف</span>
-                </TabsTrigger>
-                <TabsTrigger
-                  value="achievements"
-                  className="text-lg md:text-xl font-bold py-3 md:py-4 rounded-lg text-[#1a2332] data-[state=active]:text-white"
-                  style={{
-                    background:
-                      activeTab === "achievements" ? `linear-gradient(to right, #d8a355, #c99347)` : undefined,
-                  }}
-                >
-                  <Award className="w-4 h-4 md:w-5 md:h-5 ml-1 md:ml-2" />
-                  <span className="hidden sm:inline">الإنجازات</span>
-                  <span className="sm:hidden">الإنجاز</span>
-                </TabsTrigger>
-                <TabsTrigger
-                  value="records"
-                  className="text-lg md:text-xl font-bold py-3 md:py-4 rounded-lg text-[#1a2332] data-[state=active]:text-white"
-                  style={{
-                    background: activeTab === "records" ? `linear-gradient(to right, #d8a355, #c99347)` : undefined,
-                  }}
-                >
-                  <BarChart3 className="w-4 h-4 md:w-5 md:h-5 ml-1 md:ml-2" />
-                  <span className="hidden sm:inline">السجلات</span>
-                  <span className="sm:hidden">السجل</span>
-                </TabsTrigger>
-              </TabsList>
+            {/* التبويبات */}
+            <div className="w-full sticky top-0 z-20 bg-[#f5f1e8] rounded-xl shadow-md">
+              <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+                <TabsList className="grid w-full grid-cols-3 h-auto bg-white shadow-lg rounded-xl p-1 md:p-2 mb-2 md:mb-4 z-10">
+                  <TabsTrigger
+                    value="profile"
+                    className="text-base md:text-xl font-bold py-2 md:py-4 rounded-lg text-[#1a2332] data-[state=active]:text-white"
+                    style={{
+                      background: activeTab === "profile" ? `linear-gradient(to right, #d8a355, #c99347)` : undefined,
+                    }}
+                  >
+                    <User className="w-4 h-4 md:w-5 md:h-5 ml-1 md:ml-2" />
+                    <span className="hidden sm:inline">الملف الشخصي</span>
+                    <span className="sm:hidden">الملف</span>
+                  </TabsTrigger>
+                  <TabsTrigger
+                    value="achievements"
+                    className="text-base md:text-xl font-bold py-2 md:py-4 rounded-lg text-[#1a2332] data-[state=active]:text-white"
+                    style={{
+                      background:
+                        activeTab === "achievements" ? `linear-gradient(to right, #d8a355, #c99347)` : undefined,
+                    }}
+                  >
+                    <Award className="w-4 h-4 md:w-5 md:h-5 ml-1 md:ml-2" />
+                    <span className="hidden sm:inline">الإنجازات</span>
+                    <span className="sm:hidden">الإنجاز</span>
+                  </TabsTrigger>
+                  <TabsTrigger
+                    value="records"
+                    className="text-base md:text-xl font-bold py-2 md:py-4 rounded-lg text-[#1a2332] data-[state=active]:text-white"
+                    style={{
+                      background: activeTab === "records" ? `linear-gradient(to right, #d8a355, #c99347)` : undefined,
+                    }}
+                  >
+                    <BarChart3 className="w-4 h-4 md:w-5 md:h-5 ml-1 md:ml-2" />
+                    <span className="hidden sm:inline">السجلات</span>
+                    <span className="sm:hidden">السجل</span>
+                  </TabsTrigger>
+                </TabsList>
 
               <TabsContent value="profile" className="space-y-4 md:space-y-6">
                 <Card className="border-4 border-[#d8a355] shadow-2xl bg-white/95 backdrop-blur-sm rounded-2xl md:rounded-3xl">
