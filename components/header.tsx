@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ChevronDown, User, LogOut, Users, LayoutDashboard, Menu, X, ClipboardCheck } from "lucide-react"
+import { ChevronDown, User, LogOut, Users, LayoutDashboard, Menu, X, ClipboardCheck, Award, BarChart3, Star, Trophy } from "lucide-react"
 import { useState, useEffect } from "react"
 import { useRouter, usePathname } from "next/navigation"
 import { useConfirmDialog } from "@/hooks/use-confirm-dialog"
