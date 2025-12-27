@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ChevronDown, User, LogOut, Users, LayoutDashboard, Menu, X, ClipboardCheck, Award, BarChart3, Star, Trophy } from "lucide-react"
+import { ChevronDown, User, LogOut, Users, LayoutDashboard, Menu, X, ClipboardCheck } from "lucide-react"
 import { useState, useEffect } from "react"
 import { useRouter, usePathname } from "next/navigation"
 import { useConfirmDialog } from "@/hooks/use-confirm-dialog"
@@ -43,49 +43,43 @@ export function Header() {
   const [isLoggingOut, setIsLoggingOut] = useState(false)
 
   const scrollToTop = () => {
-    if (typeof window !== "undefined") {
-      window.scrollTo({ top: 0, behavior: "instant" })
-    }
+    window.scrollTo({ top: 0, behavior: "instant" })
   }
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const loggedIn = localStorage.getItem("isLoggedIn") === "true"
-      const role = localStorage.getItem("userRole")
-      setIsLoggedIn(loggedIn)
-      setUserRole(role)
+    const loggedIn = localStorage.getItem("isLoggedIn") === "true"
+    const role = localStorage.getItem("userRole")
+    setIsLoggedIn(loggedIn)
+    setUserRole(role)
 
-      if (loggedIn && role === "teacher") {
-        const accountNumber = localStorage.getItem("accountNumber")
-        if (accountNumber) {
-          fetchTeacherInfo(accountNumber)
-        }
+    if (loggedIn && role === "teacher") {
+      const accountNumber = localStorage.getItem("accountNumber")
+      if (accountNumber) {
+        fetchTeacherInfo(accountNumber)
       }
-
-      loadCircles()
     }
+
+    loadCircles()
   }, [])
 
   const loadCircles = () => {
-    if (typeof window !== "undefined") {
-      try {
-        const cachedData = localStorage.getItem("circlesCache")
-        const cacheTimestamp = localStorage.getItem("circlesCacheTime")
+    try {
+      const cachedData = localStorage.getItem("circlesCache")
+      const cacheTimestamp = localStorage.getItem("circlesCacheTime")
 
-        if (cachedData && cacheTimestamp) {
-          const age = Date.now() - Number.parseInt(cacheTimestamp)
-          if (age < CIRCLES_CACHE_DURATION) {
-            setCircles(JSON.parse(cachedData))
-            setCirclesLoading(false)
-            return
-          }
+      if (cachedData && cacheTimestamp) {
+        const age = Date.now() - Number.parseInt(cacheTimestamp)
+        if (age < CIRCLES_CACHE_DURATION) {
+          setCircles(JSON.parse(cachedData))
+          setCirclesLoading(false)
+          return
         }
-
-        fetchCircles()
-      } catch (error) {
-        console.error("[v0] Error loading circles cache:", error)
-        fetchCircles()
       }
+
+      fetchCircles()
+    } catch (error) {
+      console.error("[v0] Error loading circles cache:", error)
+      fetchCircles()
     }
   }
 
@@ -96,10 +90,8 @@ export function Header() {
       const data = await response.json()
       if (data.circles) {
         setCircles(data.circles)
-        if (typeof window !== "undefined") {
-          localStorage.setItem("circlesCache", JSON.stringify(data.circles))
-          localStorage.setItem("circlesCacheTime", Date.now().toString())
-        }
+        localStorage.setItem("circlesCache", JSON.stringify(data.circles))
+        localStorage.setItem("circlesCacheTime", Date.now().toString())
       }
     } catch (error) {
       console.error("[v0] Error fetching circles:", error)
@@ -138,15 +130,13 @@ export function Header() {
 
       await new Promise((resolve) => setTimeout(resolve, 1000))
 
-      if (typeof window !== "undefined") {
-        localStorage.removeItem("studentId")
-        localStorage.removeItem("accountNumber")
-        localStorage.removeItem("account_number")
-        localStorage.removeItem("userRole")
-        localStorage.removeItem("isLoggedIn")
-        localStorage.removeItem("circlesCache")
-        localStorage.removeItem("circlesCacheTime")
-      }
+      localStorage.removeItem("studentId")
+      localStorage.removeItem("accountNumber")
+      localStorage.removeItem("account_number")
+      localStorage.removeItem("userRole")
+      localStorage.removeItem("isLoggedIn")
+      localStorage.removeItem("circlesCache")
+      localStorage.removeItem("circlesCacheTime")
       setIsLoggedIn(false)
       setUserRole(null)
       setIsLoggingOut(false)
@@ -180,7 +170,7 @@ export function Header() {
     setIsDesktopProfileDropdownOpen(false)
     scrollToTop()
 
-    if (typeof window !== "undefined" && href.startsWith("/profile?tab=") && pathname === "/profile") {
+    if (href.startsWith("/profile?tab=") && pathname === "/profile") {
       const tab = href.split("tab=")[1]
       window.history.pushState({}, "", href)
       window.dispatchEvent(new CustomEvent("tabChange", { detail: { tab } }))
@@ -258,7 +248,7 @@ export function Header() {
                 <DropdownMenuContent align="end" className="w-64 p-2 rounded-xl shadow-2xl border border-[#d8a355]/30 bg-white text-[#00312e]">
                   {userRole === "admin" ? (
                     <DropdownMenuItem
-                      onClick={() => { handleDropdownNavClick("/admin/dashboard"); setIsMobileProfileDropdownOpen(false); }}
+                      onClick={() => handleDropdownNavClick("/admin/dashboard")}
                       className="cursor-pointer text-base py-3 focus:bg-[#f5f1e8] focus:text-[#d8a355] transition-all duration-200"
                     >
                       <LayoutDashboard className="w-5 h-5 ml-2" />
@@ -267,72 +257,26 @@ export function Header() {
                   ) : userRole === "teacher" ? (
                     <>
                       <DropdownMenuItem
-                        onClick={() => { handleDropdownNavClick("/teacher/halaqah/1"); setIsMobileProfileDropdownOpen(false); }}
+                        onClick={() => handleDropdownNavClick("/teacher/halaqah/1")}
                         className="cursor-pointer text-base py-3 focus:bg-[#f5f1e8] focus:text-[#d8a355] transition-all duration-200"
                       >
                         <Users className="w-5 h-5 ml-2" />
                         إدارة الحلقة
                       </DropdownMenuItem>
                       <DropdownMenuItem
-                        onClick={() => { handleOpenAttendanceModal(); setIsMobileProfileDropdownOpen(false); }}
+                        onClick={handleOpenAttendanceModal}
                         className="cursor-pointer text-base py-3 focus:bg-[#f5f1e8] focus:text-[#d8a355] transition-all duration-200"
                       >
                         <ClipboardCheck className="w-5 h-5 ml-2" />
                         التحضير
                       </DropdownMenuItem>
                     </>
-                  ) : userRole === "student" ? (
-                    <>
-                      <DropdownMenuItem
-                        onClick={() => { handleDropdownNavClick("/profile"); setIsMobileProfileDropdownOpen(false); }}
-                        className="cursor-pointer text-base py-3 focus:bg-[#f5f1e8] focus:text-[#d8a355] transition-all duration-200"
-                      >
-                        <User className="w-5 h-5 ml-2" />
-                        الملف الشخصي
-                      </DropdownMenuItem>
-                      <DropdownMenuItem
-                        onClick={() => { handleDropdownNavClick("/achievements"); setIsMobileProfileDropdownOpen(false); }}
-                        className="cursor-pointer text-base py-3 focus:bg-[#f5f1e8] focus:text-[#d8a355] transition-all duration-200"
-                      >
-                        <Award className="w-5 h-5 ml-2" />
-                        الإنجازات
-                      </DropdownMenuItem>
-                      <DropdownMenuItem
-                        onClick={() => { handleDropdownNavClick("/pathways"); setIsMobileProfileDropdownOpen(false); }}
-                        className="cursor-pointer text-base py-3 focus:bg-[#f5f1e8] focus:text-[#d8a355] transition-all duration-200"
-                      >
-                        <BarChart3 className="w-5 h-5 ml-2" />
-                        المسار
-                      </DropdownMenuItem>
-                      <DropdownMenuItem
-                        onClick={() => { handleDropdownNavClick("/daily-challenge"); setIsMobileProfileDropdownOpen(false); }}
-                        className="cursor-pointer text-base py-3 focus:bg-[#f5f1e8] focus:text-[#d8a355] transition-all duration-200"
-                      >
-                        <Star className="w-5 h-5 ml-2" />
-                        التحدي اليومي
-                      </DropdownMenuItem>
-                      <DropdownMenuItem
-                        onClick={() => { handleDropdownNavClick("/store"); setIsMobileProfileDropdownOpen(false); }}
-                        className="cursor-pointer text-base py-3 focus:bg-[#f5f1e8] focus:text-[#d8a355] transition-all duration-200"
-                      >
-                        <Trophy className="w-5 h-5 ml-2" />
-                        المتجر
-                      </DropdownMenuItem>
-                      <DropdownMenuItem
-                        onClick={() => { handleDropdownNavClick("/contact"); setIsMobileProfileDropdownOpen(false); }}
-                        className="cursor-pointer text-base py-3 focus:bg-[#f5f1e8] focus:text-[#d8a355] transition-all duration-200"
-                      >
-                        <Users className="w-5 h-5 ml-2" />
-                        تواصل معنا
-                      </DropdownMenuItem>
-                      <DropdownMenuSeparator />
-                    </>
                   ) : (
                     <DropdownMenuSeparator />
                   )}
-                  {/* End of role-based menu items */}
-                  <DropdownMenuItem
-                    onClick={() => { handleLogout(); setIsMobileProfileDropdownOpen(false); }}
+                {/* End of role-based menu items */}
+                <DropdownMenuItem
+                    onClick={handleLogout}
                     className="cursor-pointer text-base py-3 text-red-600 focus:bg-red-50 focus:text-red-700 transition-all duration-200"
                   >
                     <LogOut className="w-5 h-5 ml-2" />
