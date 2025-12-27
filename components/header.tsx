@@ -43,43 +43,49 @@ export function Header() {
   const [isLoggingOut, setIsLoggingOut] = useState(false)
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "instant" })
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "instant" })
+    }
   }
 
   useEffect(() => {
-    const loggedIn = localStorage.getItem("isLoggedIn") === "true"
-    const role = localStorage.getItem("userRole")
-    setIsLoggedIn(loggedIn)
-    setUserRole(role)
+    if (typeof window !== "undefined") {
+      const loggedIn = localStorage.getItem("isLoggedIn") === "true"
+      const role = localStorage.getItem("userRole")
+      setIsLoggedIn(loggedIn)
+      setUserRole(role)
 
-    if (loggedIn && role === "teacher") {
-      const accountNumber = localStorage.getItem("accountNumber")
-      if (accountNumber) {
-        fetchTeacherInfo(accountNumber)
-      }
-    }
-
-    loadCircles()
-  }, [])
-
-  const loadCircles = () => {
-    try {
-      const cachedData = localStorage.getItem("circlesCache")
-      const cacheTimestamp = localStorage.getItem("circlesCacheTime")
-
-      if (cachedData && cacheTimestamp) {
-        const age = Date.now() - Number.parseInt(cacheTimestamp)
-        if (age < CIRCLES_CACHE_DURATION) {
-          setCircles(JSON.parse(cachedData))
-          setCirclesLoading(false)
-          return
+      if (loggedIn && role === "teacher") {
+        const accountNumber = localStorage.getItem("accountNumber")
+        if (accountNumber) {
+          fetchTeacherInfo(accountNumber)
         }
       }
 
-      fetchCircles()
-    } catch (error) {
-      console.error("[v0] Error loading circles cache:", error)
-      fetchCircles()
+      loadCircles()
+    }
+  }, [])
+
+  const loadCircles = () => {
+    if (typeof window !== "undefined") {
+      try {
+        const cachedData = localStorage.getItem("circlesCache")
+        const cacheTimestamp = localStorage.getItem("circlesCacheTime")
+
+        if (cachedData && cacheTimestamp) {
+          const age = Date.now() - Number.parseInt(cacheTimestamp)
+          if (age < CIRCLES_CACHE_DURATION) {
+            setCircles(JSON.parse(cachedData))
+            setCirclesLoading(false)
+            return
+          }
+        }
+
+        fetchCircles()
+      } catch (error) {
+        console.error("[v0] Error loading circles cache:", error)
+        fetchCircles()
+      }
     }
   }
 
@@ -90,8 +96,10 @@ export function Header() {
       const data = await response.json()
       if (data.circles) {
         setCircles(data.circles)
-        localStorage.setItem("circlesCache", JSON.stringify(data.circles))
-        localStorage.setItem("circlesCacheTime", Date.now().toString())
+        if (typeof window !== "undefined") {
+          localStorage.setItem("circlesCache", JSON.stringify(data.circles))
+          localStorage.setItem("circlesCacheTime", Date.now().toString())
+        }
       }
     } catch (error) {
       console.error("[v0] Error fetching circles:", error)
@@ -130,13 +138,15 @@ export function Header() {
 
       await new Promise((resolve) => setTimeout(resolve, 1000))
 
-      localStorage.removeItem("studentId")
-      localStorage.removeItem("accountNumber")
-      localStorage.removeItem("account_number")
-      localStorage.removeItem("userRole")
-      localStorage.removeItem("isLoggedIn")
-      localStorage.removeItem("circlesCache")
-      localStorage.removeItem("circlesCacheTime")
+      if (typeof window !== "undefined") {
+        localStorage.removeItem("studentId")
+        localStorage.removeItem("accountNumber")
+        localStorage.removeItem("account_number")
+        localStorage.removeItem("userRole")
+        localStorage.removeItem("isLoggedIn")
+        localStorage.removeItem("circlesCache")
+        localStorage.removeItem("circlesCacheTime")
+      }
       setIsLoggedIn(false)
       setUserRole(null)
       setIsLoggingOut(false)
@@ -170,7 +180,7 @@ export function Header() {
     setIsDesktopProfileDropdownOpen(false)
     scrollToTop()
 
-    if (href.startsWith("/profile?tab=") && pathname === "/profile") {
+    if (typeof window !== "undefined" && href.startsWith("/profile?tab=") && pathname === "/profile") {
       const tab = href.split("tab=")[1]
       window.history.pushState({}, "", href)
       window.dispatchEvent(new CustomEvent("tabChange", { detail: { tab } }))
