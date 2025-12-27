@@ -253,97 +253,44 @@ export default function ProfilePage() {
                     <div className="flex-1 text-center md:text-right w-full">
                       <h1 className="text-2xl md:text-4xl font-bold mb-2 text-[#1a2332] drop-shadow-sm">{studentData.name}</h1>
                       <p className="text-base md:text-xl mb-4 text-[#1a2332] opacity-90 font-semibold">{studentData.halaqah}</p>
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4 md:mt-6">
-                        <div className="bg-white/95 backdrop-blur-sm rounded-lg md:rounded-xl p-3 md:p-4 shadow-lg border-2 border-white/50 hover:scale-105 transition-transform duration-300">
-                          <div className="flex items-center justify-between mb-1 md:mb-2">
-                            <div
-                              className="p-1.5 md:p-2 rounded-lg shadow-md"
-                              style={{
-                                background: `linear-gradient(to bottom right, #d8a355, #c99347)`,
-                              }}
-                            >
-                              <Trophy className="w-3 h-3 md:w-5 md:h-5 text-white" />
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 md:mt-6">
+                        {/* المركز العام */}
+                        <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 flex flex-col items-center justify-center shadow-lg border-2 border-white/50">
+                          <div className="flex flex-col items-center justify-center gap-2 mb-2">
+                            <div className="p-2 rounded-lg shadow-md" style={{background: `linear-gradient(to bottom right, #d8a355, #c99347)`}}>
+                              <Trophy className="w-5 h-5 text-white" />
                             </div>
-                            <span className="text-[10px] md:text-xs font-bold text-[#1a2332]/60 tracking-wide">
-                              المركز العام
-                            </span>
+                            <span className="text-xs font-bold text-[#1a2332]/60 tracking-wide">المركز العام</span>
                           </div>
-                          <div className="text-right">
-                            <div
-                              className="text-2xl md:text-4xl font-black"
-                              style={{
-                                background: `linear-gradient(to bottom right, #d8a355, #c99347)`,
-                                WebkitBackgroundClip: "text",
-                                WebkitTextFillColor: "transparent",
-                                backgroundClip: "text",
-                              }}
-                            >
-                              {rankingData?.globalRank || "-"}
-                            </div>
-                            <p className="text-xs md:text-xs text-[#1a2332] font-semibold">بين جميع الطلاب</p>
+                          <div className="flex flex-col items-center justify-center">
+                            <span className="text-3xl font-black" style={{background: `linear-gradient(to bottom right, #d8a355, #c99347)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text"}}>{rankingData?.globalRank || "-"}</span>
+                            <span className="text-xs text-[#1a2332] font-semibold">بين جميع الطلاب</span>
                           </div>
                         </div>
-
-                        <div className="bg-white/95 backdrop-blur-sm rounded-lg md:rounded-xl p-3 md:p-4 shadow-lg border-2 border-white/50 hover:scale-105 transition-transform duration-300">
-                          <div className="flex items-center justify-between mb-1 md:mb-2">
-                            <div
-                              className="p-1.5 md:p-2 rounded-lg shadow-md"
-                              style={{
-                                background: `linear-gradient(to bottom right, #d8a355, #c99347)`,
-                              }}
-                            >
-                              <Award className="w-3 h-3 md:w-5 md:h-5 text-white" />
+                        {/* الحلقة */}
+                        <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 flex flex-col items-center justify-center shadow-lg border-2 border-white/50">
+                          <div className="flex flex-col items-center justify-center gap-2 mb-2">
+                            <div className="p-2 rounded-lg shadow-md" style={{background: `linear-gradient(to bottom right, #d8a355, #c99347)`}}>
+                              <Award className="w-5 h-5 text-white" />
                             </div>
-                            <span className="text-[10px] md:text-xs font-bold text-[#1a2332]/60 tracking-wide">
-                              الحلقة
-                            </span>
+                            <span className="text-xs font-bold text-[#1a2332]/60 tracking-wide">الحلقة</span>
                           </div>
-                          <div className="text-right">
-                            <div
-                              className="text-2xl md:text-4xl font-black"
-                              style={{
-                                background: `linear-gradient(to bottom right, #d8a355, #c99347)`,
-                                WebkitBackgroundClip: "text",
-                                WebkitTextFillColor: "transparent",
-                                backgroundClip: "text",
-                              }}
-                            >
-                              {rankingData?.circleRank || "-"}
-                            </div>
-                            <p className="text-xs md:text-xs text-[#1a2332] font-semibold">
-                              {rankingData?.circleName}
-                            </p>
+                          <div className="flex flex-col items-center justify-center">
+                            <span className="text-3xl font-black" style={{background: `linear-gradient(to bottom right, #d8a355, #c99347)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text"}}>{rankingData?.circleRank || "-"}</span>
+                            <span className="text-xs text-[#1a2332] font-semibold">{rankingData?.circleName}</span>
                           </div>
                         </div>
-
-                        {/* Points Card */}
-                        <div className="bg-white/95 backdrop-blur-sm rounded-lg md:rounded-xl p-3 md:p-4 shadow-lg border-2 border-white/50 hover:scale-105 transition-transform duration-300">
-                          <div className="flex items-center justify-between mb-1 md:mb-2">
-                            <div
-                              className="p-1.5 md:p-2 rounded-lg shadow-md"
-                              style={{
-                                background: `linear-gradient(to bottom right, #d8a355, #c99347)`,
-                              }}
-                            >
-                              <Star className="w-3 h-3 md:w-5 md:h-5 text-white fill-white" />
+                        {/* النقاط */}
+                        <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 flex flex-col items-center justify-center shadow-lg border-2 border-white/50">
+                          <div className="flex flex-col items-center justify-center gap-2 mb-2">
+                            <div className="p-2 rounded-lg shadow-md" style={{background: `linear-gradient(to bottom right, #d8a355, #c99347)`}}>
+                              <Star className="w-5 h-5 text-white fill-white" />
                             </div>
-                            <span className="text-[10px] md:text-xs font-bold text-[#1a2332]/60 tracking-wide">
-                              النقاط
-                            </span>
+                            <span className="text-xs font-bold text-[#1a2332]/60 tracking-wide">النقاط</span>
                           </div>
-                          <div className="text-right">
-                            <div
-                              className="text-2xl md:text-4xl font-black"
-                              style={{
-                                background: `linear-gradient(to bottom right, #d8a355, #c99347)`,
-                                WebkitBackgroundClip: "text",
-                                WebkitTextFillColor: "transparent",
-                                backgroundClip: "text",
-                              }}
-                            >
-                              {studentData.points}
-                            </div>
-                            <p className="text-xs md:text-xs text-[#1a2332] font-semibold">نقطة</p>
+                          <div className="flex flex-col items-center justify-center">
+                            <span className="text-3xl font-black" style={{background: `linear-gradient(to bottom right, #d8a355, #c99347)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text"}}>{studentData.points}</span>
+                            <span className="text-xs text-[#1a2332] font-semibold">نقطة</span>
                           </div>
                         </div>
                       </div>
