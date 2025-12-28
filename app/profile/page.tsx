@@ -354,37 +354,37 @@ export default function ProfilePage() {
             </div>
 
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-              <TabsList className="grid w-full grid-cols-3 h-auto bg-white shadow-lg rounded-xl p-1 md:p-2 mb-6 md:mb-8">
+              <TabsList className="grid w-full grid-cols-3 min-h-0 h-auto bg-white shadow-lg rounded-xl p-1 md:p-2 mb-6 md:mb-8 overflow-visible">
                 <TabsTrigger
                   value="profile"
-                  className="text-sm md:text-lg font-bold py-3 md:py-4 rounded-lg data-[state=active]:text-white flex items-center justify-center gap-1"
+                  className="w-full h-auto flex flex-col items-center justify-center gap-1 text-xs md:text-lg font-bold py-2 md:py-4 rounded-lg data-[state=active]:text-white leading-tight"
                   style={{
                     background: activeTab === "profile" ? `linear-gradient(to right, #d8a355, #c99347)` : undefined,
                   }}
                 >
-                  <User className="w-4 h-4 md:w-5 md:h-5 ml-1 md:ml-2" />
-                  <span className="block">الملف الشخصي</span>
+                  <User className="w-5 h-5 md:w-5 md:h-5 mb-1" />
+                  <span className="block leading-tight">الملف الشخصي</span>
                 </TabsTrigger>
                 <TabsTrigger
                   value="achievements"
-                  className="text-sm md:text-lg font-bold py-3 md:py-4 rounded-lg data-[state=active]:text-white flex items-center justify-center gap-1"
+                  className="w-full h-auto flex flex-col items-center justify-center gap-1 text-xs md:text-lg font-bold py-2 md:py-4 rounded-lg data-[state=active]:text-white leading-tight"
                   style={{
                     background:
                       activeTab === "achievements" ? `linear-gradient(to right, #d8a355, #c99347)` : undefined,
                   }}
                 >
-                  <Award className="w-4 h-4 md:w-5 md:h-5 ml-1 md:ml-2" />
-                  <span className="block">الإنجازات</span>
+                  <Award className="w-5 h-5 md:w-5 md:h-5 mb-1" />
+                  <span className="block leading-tight">الإنجازات</span>
                 </TabsTrigger>
                 <TabsTrigger
                   value="records"
-                  className="text-sm md:text-lg font-bold py-3 md:py-4 rounded-lg data-[state=active]:text-white flex items-center justify-center gap-1"
+                  className="w-full h-auto flex flex-col items-center justify-center gap-1 text-xs md:text-lg font-bold py-2 md:py-4 rounded-lg data-[state=active]:text-white leading-tight"
                   style={{
                     background: activeTab === "records" ? `linear-gradient(to right, #d8a355, #c99347)` : undefined,
                   }}
                 >
-                  <BarChart3 className="w-4 h-4 md:w-5 md:h-5 ml-1 md:ml-2" />
-                  <span className="block">السجلات</span>
+                  <BarChart3 className="w-5 h-5 md:w-5 md:h-5 mb-1" />
+                  <span className="block leading-tight">السجلات</span>
                 </TabsTrigger>
               </TabsList>
 
