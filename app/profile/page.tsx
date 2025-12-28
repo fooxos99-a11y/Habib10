@@ -242,7 +242,7 @@ export default function ProfilePage() {
         <main className="flex-1 py-6 md:py-12 px-3 md:px-4">
           <div className="container mx-auto max-w-6xl">
             <div
-              className="rounded-2xl md:rounded-3xl shadow-2xl p-4 md:p-8 mb-6 md:mb-8 text-white"
+              className="rounded-2xl md:rounded-3xl shadow-2xl p-4 md:p-8 mb-2 md:mb-8 text-white"
               style={{
                 background: `linear-gradient(to right, #d8a355, #c99347)`,
               }}
