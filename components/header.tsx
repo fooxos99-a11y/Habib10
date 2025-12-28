@@ -258,6 +258,32 @@ export function Header() {
                       <DropdownMenuSeparator className="block md:hidden" />
                     </>
                   )}
+                  {userRole === "teacher" && (
+                    <>
+                      <DropdownMenuItem
+                        onClick={() => { handleDropdownNavClick("/teacher/halaqah/1"); setIsMobileProfileDropdownOpen(false); }}
+                        className="cursor-pointer text-base py-3 focus:bg-[#f5f1e8] focus:text-[#d8a355] transition-all duration-200 block md:hidden flex flex-row items-center gap-2"
+                      >
+                        <Users className="w-5 h-5" />
+                        <span>إدارة الحلقة</span>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem
+                        onClick={() => { handleDropdownNavClick("/teacher/dashboard"); setIsMobileProfileDropdownOpen(false); }}
+                        className="cursor-pointer text-base py-3 focus:bg-[#f5f1e8] focus:text-[#d8a355] transition-all duration-200 block md:hidden flex flex-row items-center gap-2"
+                      >
+                        <User className="w-5 h-5" />
+                        <span>الملف الشخصي</span>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem
+                        onClick={handleOpenAttendanceModal}
+                        className="cursor-pointer text-base py-3 focus:bg-[#f5f1e8] focus:text-[#d8a355] transition-all duration-200 block md:hidden flex flex-row items-center gap-2"
+                      >
+                        <ClipboardCheck className="w-5 h-5" />
+                        <span>التحضير</span>
+                      </DropdownMenuItem>
+                      <DropdownMenuSeparator className="block md:hidden" />
+                    </>
+                  )}
                   <DropdownMenuItem
                     onClick={handleLogout}
                     className="cursor-pointer text-base py-3 text-red-600 focus:bg-red-50 focus:text-red-700 transition-all duration-200"
