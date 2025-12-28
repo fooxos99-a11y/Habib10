@@ -346,17 +346,15 @@ export default function HalaqahManagement() {
 								<ArrowRight className="w-5 h-5 ml-2" />
 							</Button>
 							<h1 className="text-4xl font-bold text-[#1a2332]">{halaqahName}</h1>
-							<div className="flex gap-3">
-								<div className="w-full flex flex-row gap-2 items-stretch justify-start max-w-md mx-auto sm:gap-3">
-									<div className="flex flex-col gap-2 w-full max-w-[180px]">
-										<Button onClick={markAllPresent} className="bg-white border-2 border-[#D4AF37] text-[#1a2332] hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#C9A961] hover:text-[#023232] font-bold py-3 px-6 transition-all w-full">
-											حاضر للكل
-										</Button>
-										<Button onClick={markAllAbsent} className="bg-white border-2 border-[#D4AF37] text-[#1a2332] hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#C9A961] hover:text-[#023232] font-bold py-3 px-6 transition-all w-full">
-											غياب للكل
-										</Button>
-									</div>
-									<Button onClick={markAllExcused} className="bg-white border-2 border-[#D4AF37] text-[#1a2332] hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#C9A961] hover:text-[#023232] font-bold py-3 px-6 transition-all h-full w-full sm:w-auto max-h-[90px]">
+							<div className="flex w-full flex-col items-center justify-center mb-4">
+								<div className="flex w-full flex-row gap-2 sm:gap-3 items-stretch justify-center">
+									<Button onClick={markAllPresent} className="flex-1 min-w-0 bg-white border-2 border-[#D4AF37] text-[#1a2332] hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#C9A961] hover:text-[#023232] font-bold py-3 px-2 transition-all text-center">
+										حاضر للكل
+									</Button>
+									<Button onClick={markAllAbsent} className="flex-1 min-w-0 bg-white border-2 border-[#D4AF37] text-[#1a2332] hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#C9A961] hover:text-[#023232] font-bold py-3 px-2 transition-all text-center">
+										غياب للكل
+									</Button>
+									<Button onClick={markAllExcused} className="flex-1 min-w-0 bg-white border-2 border-[#D4AF37] text-[#1a2332] hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#C9A961] hover:text-[#023232] font-bold py-3 px-2 transition-all text-center">
 										مستأذن للكل
 									</Button>
 								</div>
