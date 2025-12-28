@@ -349,13 +349,13 @@ export default function HalaqahManagement() {
 							<div className="flex w-full justify-center mb-4">
 								<div className="grid grid-cols-3 gap-0.5 w-full">
 									<Button onClick={markAllPresent} className="w-full bg-white border-2 border-[#D4AF37] text-[#1a2332] hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#C9A961] hover:text-[#023232] font-bold py-1 px-0.5 text-xs transition-all text-center min-w-0">
-										حاضر للكل
+										حاضر
 									</Button>
 									<Button onClick={markAllAbsent} className="w-full bg-white border-2 border-[#D4AF37] text-[#1a2332] hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#C9A961] hover:text-[#023232] font-bold py-1 px-0.5 text-xs transition-all text-center min-w-0">
-										غياب للكل
+										غائب
 									</Button>
 									<Button onClick={markAllExcused} className="w-full bg-white border-2 border-[#D4AF37] text-[#1a2332] hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#C9A961] hover:text-[#023232] font-bold py-1 px-0.5 text-xs transition-all text-center min-w-0">
-										مستأذن للكل
+										مستأذن
 									</Button>
 								</div>
 							</div>
@@ -380,10 +380,10 @@ export default function HalaqahManagement() {
 														<div>
 															<p className="text-xl font-bold text-[#1a2332]">{student.name}</p>
 														</div>
-														<div className="flex flex-col gap-2 sm:flex-row sm:gap-3">
+														<div className="flex flex-row gap-2 w-full">
 															<Button
 																onClick={() => toggleAttendance(student.id, "present")}
-																className={`flex-1 py-3 sm:py-6 text-base font-bold transition-all ${
+																className={`flex-1 py-3 text-base font-bold transition-all ${
 																	student.attendance === "present"
 																		? "bg-gradient-to-r from-[#D4AF37] to-[#C9A961] text-[#023232] border-2 border-[#D4AF37]"
 																		: "bg-white text-[#1a2332] border-2 border-[#D4AF37] hover:bg-[#f5f1e8]"
@@ -393,7 +393,7 @@ export default function HalaqahManagement() {
 															</Button>
 															<Button
 																onClick={() => toggleAttendance(student.id, "absent")}
-																className={`flex-1 py-3 sm:py-6 text-base font-bold transition-all ${
+																className={`flex-1 py-3 text-base font-bold transition-all ${
 																	student.attendance === "absent"
 																		? "bg-gradient-to-r from-[#D4AF37] to-[#C9A961] text-[#023232] border-2 border-[#D4AF37]"
 																		: "bg-white text-[#1a2332] border-2 border-[#D4AF37] hover:bg-[#f5f1e8]"
@@ -403,7 +403,7 @@ export default function HalaqahManagement() {
 															</Button>
 															<Button
 																onClick={() => toggleAttendance(student.id, "excused")}
-																className={`flex-1 py-3 sm:py-6 text-base font-bold transition-all ${
+																className={`flex-1 py-3 text-base font-bold transition-all ${
 																	student.attendance === "excused"
 																		? "bg-gradient-to-r from-[#D4AF37] to-[#C9A961] text-[#023232] border-2 border-[#D4AF37]"
 																		: "bg-white text-[#1a2332] border-2 border-[#D4AF37] hover:bg-[#f5f1e8]"
