@@ -346,15 +346,15 @@ export default function HalaqahManagement() {
 								<ArrowRight className="w-5 h-5 ml-2" />
 							</Button>
 							<h1 className="text-4xl font-bold text-[#1a2332]">{halaqahName}</h1>
-							<div className="flex w-full flex-col items-center justify-center mb-4">
-								<div className="flex w-full flex-row gap-2 sm:gap-3 items-stretch justify-center">
-									<Button onClick={markAllPresent} className="flex-1 min-w-0 bg-white border-2 border-[#D4AF37] text-[#1a2332] hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#C9A961] hover:text-[#023232] font-bold py-3 px-2 transition-all text-center">
+							<div className="flex w-full justify-center mb-4">
+								<div className="grid grid-cols-3 gap-1 w-full max-w-xs">
+									<Button onClick={markAllPresent} className="w-full bg-white border-2 border-[#D4AF37] text-[#1a2332] hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#C9A961] hover:text-[#023232] font-bold py-2 px-1 text-sm transition-all text-center">
 										حاضر للكل
 									</Button>
-									<Button onClick={markAllAbsent} className="flex-1 min-w-0 bg-white border-2 border-[#D4AF37] text-[#1a2332] hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#C9A961] hover:text-[#023232] font-bold py-3 px-2 transition-all text-center">
+									<Button onClick={markAllAbsent} className="w-full bg-white border-2 border-[#D4AF37] text-[#1a2332] hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#C9A961] hover:text-[#023232] font-bold py-2 px-1 text-sm transition-all text-center">
 										غياب للكل
 									</Button>
-									<Button onClick={markAllExcused} className="flex-1 min-w-0 bg-white border-2 border-[#D4AF37] text-[#1a2332] hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#C9A961] hover:text-[#023232] font-bold py-3 px-2 transition-all text-center">
+									<Button onClick={markAllExcused} className="w-full bg-white border-2 border-[#D4AF37] text-[#1a2332] hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#C9A961] hover:text-[#023232] font-bold py-2 px-1 text-sm transition-all text-center">
 										مستأذن للكل
 									</Button>
 								</div>
