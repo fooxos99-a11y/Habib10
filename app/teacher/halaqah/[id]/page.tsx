@@ -387,10 +387,10 @@ export default function HalaqahManagement() {
 														<div>
 															<p className="text-xl font-bold text-[#1a2332]">{student.name}</p>
 														</div>
-														<div className="flex gap-3">
+														<div className="flex flex-col gap-2 sm:flex-row sm:gap-3">
 															<Button
 																onClick={() => toggleAttendance(student.id, "present")}
-																className={`flex-1 py-6 text-base font-bold transition-all ${
+																className={`flex-1 py-3 sm:py-6 text-base font-bold transition-all ${
 																	student.attendance === "present"
 																		? "bg-gradient-to-r from-[#D4AF37] to-[#C9A961] text-[#023232] border-2 border-[#D4AF37]"
 																		: "bg-white text-[#1a2332] border-2 border-[#D4AF37] hover:bg-[#f5f1e8]"
@@ -400,7 +400,7 @@ export default function HalaqahManagement() {
 															</Button>
 															<Button
 																onClick={() => toggleAttendance(student.id, "absent")}
-																className={`flex-1 py-6 text-base font-bold transition-all ${
+																className={`flex-1 py-3 sm:py-6 text-base font-bold transition-all ${
 																	student.attendance === "absent"
 																		? "bg-gradient-to-r from-[#D4AF37] to-[#C9A961] text-[#023232] border-2 border-[#D4AF37]"
 																		: "bg-white text-[#1a2332] border-2 border-[#D4AF37] hover:bg-[#f5f1e8]"
@@ -410,7 +410,7 @@ export default function HalaqahManagement() {
 															</Button>
 															<Button
 																onClick={() => toggleAttendance(student.id, "excused")}
-																className={`flex-1 py-6 text-base font-bold transition-all ${
+																className={`flex-1 py-3 sm:py-6 text-base font-bold transition-all ${
 																	student.attendance === "excused"
 																		? "bg-gradient-to-r from-[#D4AF37] to-[#C9A961] text-[#023232] border-2 border-[#D4AF37]"
 																		: "bg-white text-[#1a2332] border-2 border-[#D4AF37] hover:bg-[#f5f1e8]"
