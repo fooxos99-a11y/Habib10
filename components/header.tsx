@@ -284,6 +284,25 @@ export function Header() {
                       <DropdownMenuSeparator className="block md:hidden" />
                     </>
                   )}
+                  {userRole === "admin" && (
+                    <>
+                      <DropdownMenuItem
+                        onClick={() => { handleDropdownNavClick("/admin/profile"); setIsMobileProfileDropdownOpen(false); }}
+                        className="cursor-pointer text-base py-3 focus:bg-[#f5f1e8] focus:text-[#d8a355] transition-all duration-200 block md:hidden flex flex-row items-center gap-2"
+                      >
+                        <User className="w-5 h-5" />
+                        <span>الملف الشخصي</span>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem
+                        onClick={() => { handleDropdownNavClick("/admin/dashboard"); setIsMobileProfileDropdownOpen(false); }}
+                        className="cursor-pointer text-base py-3 focus:bg-[#f5f1e8] focus:text-[#d8a355] transition-all duration-200 block md:hidden flex flex-row items-center gap-2"
+                      >
+                        <LayoutDashboard className="w-5 h-5" />
+                        <span>لوحة التحكم</span>
+                      </DropdownMenuItem>
+                      <DropdownMenuSeparator className="block md:hidden" />
+                    </>
+                  )}
                   <DropdownMenuItem
                     onClick={handleLogout}
                     className="cursor-pointer text-base py-3 text-red-600 focus:bg-red-50 focus:text-red-700 transition-all duration-200"
