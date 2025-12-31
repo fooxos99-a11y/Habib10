@@ -123,7 +123,7 @@ export default function HalaqahManagement() {
 		return (
 			<div className="min-h-screen flex flex-col bg-gradient-to-br from-[#f5f1e8] to-white">
 				<Header />
-				<main className="flex-1 py-12 px-4">
+				<main className="flex-1 py-4 px-4">
 					<div className="container mx-auto max-w-7xl">
 						<div className="flex flex-col items-center justify-center min-h-[400px] space-y-4">
 							<h1 className="text-3xl font-bold text-[#1a2332]">لا يوجد لديك حلقة</h1>
@@ -348,13 +348,25 @@ export default function HalaqahManagement() {
 							<h1 className="text-4xl font-bold text-[#1a2332]">{halaqahName}</h1>
 							<div className="flex w-full justify-center mb-4">
 								<div className="grid grid-cols-3 gap-0.5 w-full">
-									<Button onClick={markAllPresent} className="w-full bg-white border-2 border-[#D4AF37] text-[#1a2332] hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#C9A961] hover:text-[#023232] font-bold py-1 px-0.5 text-xs transition-all text-center min-w-0">
+									<Button
+										onClick={markAllPresent}
+										className="w-full bg-white border-2 border-[#D4AF37] text-[#1a2332] hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#C9A961] hover:text-[#023232] font-bold py-2 px-1.5 text-lg transition-all text-center min-w-0"
+										style={{ minHeight: 44 }}
+									>
 										حاضر
 									</Button>
-									<Button onClick={markAllAbsent} className="w-full bg-white border-2 border-[#D4AF37] text-[#1a2332] hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#C9A961] hover:text-[#023232] font-bold py-1 px-0.5 text-xs transition-all text-center min-w-0">
+									<Button
+										onClick={markAllAbsent}
+										className="w-full bg-white border-2 border-[#D4AF37] text-[#1a2332] hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#C9A961] hover:text-[#023232] font-bold py-2 px-1.5 text-lg transition-all text-center min-w-0"
+										style={{ minHeight: 44 }}
+									>
 										غائب
 									</Button>
-									<Button onClick={markAllExcused} className="w-full bg-white border-2 border-[#D4AF37] text-[#1a2332] hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#C9A961] hover:text-[#023232] font-bold py-1 px-0.5 text-xs transition-all text-center min-w-0">
+									<Button
+										onClick={markAllExcused}
+										className="w-full bg-white border-2 border-[#D4AF37] text-[#1a2332] hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#C9A961] hover:text-[#023232] font-bold py-2 px-1.5 text-lg transition-all text-center min-w-0"
+										style={{ minHeight: 44 }}
+									>
 										مستأذن
 									</Button>
 								</div>
